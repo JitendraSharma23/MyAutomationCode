@@ -26,17 +26,10 @@ public class LoginPageObject extends DriverInvocationClass {
 		protected @FindBy(xpath = "//input[@class='loginSubmitBtn']") 
 		WebElement loginButton;
 		
-		protected @FindBy(xpath= "//*[@id=\"footerpnl\"]/div")
-		WebElement Alertmsg;
+		protected @FindBy(xpath = "//input[@id=\"footerpnl\"]/div.getText()")   //*[@id="footerpnl"]/div
+		 String validationmessage;
 	}
-		// Actions
-		/*public void Enter_Invalid_UserNamePassword(){
-			userNameField.sendKeys("test");
-			passwordField.sendKeys("test");
-
-			loginButton.click();
-		}
-	}*/
+		
 
 
 

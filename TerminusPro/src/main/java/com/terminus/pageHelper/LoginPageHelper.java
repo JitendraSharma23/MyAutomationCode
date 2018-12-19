@@ -1,8 +1,10 @@
 package com.terminus.pageHelper;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 import com.terminus.pageObjects.LoginPageObject;
+
 
 public class LoginPageHelper extends LoginPageObject {
 
@@ -11,20 +13,22 @@ public class LoginPageHelper extends LoginPageObject {
 	
 	}
 
-	public void Enter_Invalid_UserNamePassword(){
+	public void Enter_Invalid_UserNamePassword() throws InterruptedException{
+		Thread.sleep(5000);
 		userNameField.sendKeys("test");
 		passwordField.sendKeys("abc");
 
-		loginButton.click();
+		
 }
-	public  boolean Catch_Alert() {
-		
-		return Alertmsg.isDisplayed();
-		
-	//	System.out.println(Alertmsg);
-	//Alertmsg.getText();
-	//Assert.assertEquals(Alertmsg.getText().compareTo("Please enter correct Username or Password"), true);
+	
+	public  void Catch_ValidationMessage() throws InterruptedException {
+		loginButton.click();
+		Thread.sleep(7000);
+	String ExpectedMessage = "Please enter correct Username or Password";
+	
+	Assert.assertEquals(validationmessage, ExpectedMessage);
 	}
+	
 	public void Enter_valid_UserNamePassword() throws InterruptedException {
 		Thread.sleep(5000);
 		userNameField.sendKeys(prop.getProperty("username"));

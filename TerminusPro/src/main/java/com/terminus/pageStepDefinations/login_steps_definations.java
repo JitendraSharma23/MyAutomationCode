@@ -15,21 +15,22 @@ public class login_steps_definations extends DriverInvocationClass
 	}
 
 	@Given("^user enter invalid username and password$")
-	public void user_enter_invalid_username_and_password()  {
+	public void user_enter_invalid_username_and_password() throws InterruptedException  {
 	login.Enter_Invalid_UserNamePassword();
 	
 	}
 
 	@Then("^login unsucessful$")
-	public void login_unsucessful() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+	public void login_unsucessful() throws InterruptedException  {
+		login.Catch_ValidationMessage();
+		
 	}
 
 	@Then("^Close the browser$")
 	public void close_the_browser() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		
+		closeBrowser();
+		
 	}
 
 	@Given("^user enter valid username and password$")

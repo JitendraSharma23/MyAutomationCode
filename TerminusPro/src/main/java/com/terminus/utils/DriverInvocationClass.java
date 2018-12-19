@@ -23,6 +23,7 @@ public class DriverInvocationClass {
 	protected String userName="";
 	protected String password="";
 	protected LoginPageHelper login;
+	
 
 	public DriverInvocationClass()      // created constructor of the class.
 	{
@@ -65,6 +66,7 @@ public class DriverInvocationClass {
 		//Thread.sleep(15000);
 		driver.get(prop.getProperty("url"));
 		login = new LoginPageHelper(driver);
+		
 	}
 	public String getReportConfigPath(){
 		String reportConfigPath = prop.getProperty("reportConfigPath");
